@@ -1,0 +1,11 @@
+﻿<#+
+private static readonly Lazy<System.Resources.ResourceManager> ResourceManager =
+    new Lazy<System.Resources.ResourceManager>(
+        () => new System.Resources.ResourceManager("System.Data.Entity.Design", typeof(MetadataItemCollectionFactory).Assembly), isThreadSafe: true);
+
+public static string GetResourceString(string resourceName)
+{
+    ArgumentNotNull(resourceName, "resourceName");
+
+    return ResourceManager.Value.GetString(resourceName, null);
+}#>

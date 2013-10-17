@@ -1,0 +1,6 @@
+﻿<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ output extension=".cs"#>
+<#@ include file="Includes.ttinclude"#>
+<# const string inputFile = @"UserDatabase.csdl"; #>
+<#@ include file="..\Includes\Includes.ttinclude"#>
+<#@ include file="..\Includes\DataService.ttinclude"#>

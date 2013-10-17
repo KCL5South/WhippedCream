@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\KCL5South\WhippedCream\WhippedCream.Test\bin\debug\WhippedCream.Test.dll" total="205" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-10-17" time="10:44:23">
+  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.5456" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\KCL5South\WhippedCream\build" machine-name="KAF2073B" user="kaf2073" user-domain="COLOR" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\KCL5South\WhippedCream\WhippedCream.Test\bin\debug\WhippedCream.Test.dll" executed="True" result="Success" success="True" time="2.306" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="WhippedCream" executed="True" result="Success" success="True" time="2.288" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="DataServiceDataLayer" executed="True" result="Success" success="True" time="1.766" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="DataServiceDependencyBehaviorTests" executed="True" result="Success" success="True" time="1.392" asserts="0">
+                <results>
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyBehaviorTests.ApplyDispatchBehavior_AppliesCorrectInstanceProvider" executed="True" result="Success" success="True" time="1.369" asserts="2" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyBehaviorTests.Constructor_ContainerNull" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyBehaviorTests.Constructor_ContainerSet" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DataServiceDependencyHostFactoryTests" executed="True" result="Success" success="True" time="0.227" asserts="0">
+                <results>
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyHostFactoryTests.Constructor_ContainerSet" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyHostFactoryTests.Constructor_NullContainer" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyHostFactoryTests.CreateServiceHost_WhippedCreamServiceHostReturned" executed="True" result="Success" success="True" time="0.220" asserts="5" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DataServiceDependencyInstanceProviderTests" executed="True" result="Success" success="True" time="0.035" asserts="0">
+                <results>
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyInstanceProviderTests.Constructor_ContainerSet" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyInstanceProviderTests.Constructor_NullContainer" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyInstanceProviderTests.Constructor_NullType" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyInstanceProviderTests.Constructor_TypeSet" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyInstanceProviderTests.GetInstance_MultiParameter_ShouldReturnResolvedObjectFromContainer" executed="True" result="Success" success="True" time="0.021" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyInstanceProviderTests.GetInstance_MultiParameter_ShouldReturnResolvedObjectFromContainer_Again" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyInstanceProviderTests.GetInstance_SingleParameter_ShouldReturnResolvedObjectFromContainer" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceDependencyInstanceProviderTests.GetInstance_SingleParameter_ShouldReturnResolvedObjectFromContainer_Again" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="DataServiceUpdatableContextTests" executed="True" result="Success" success="True" time="0.088" asserts="0">
+                <results>
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.AddReferenceToCollection_EmptyPropertyName" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.AddReferenceToCollection_MakeSureObjectIsAdded" executed="True" result="Success" success="True" time="0.002" asserts="2" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.AddReferenceToCollection_NullPropertyName" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.AddReferenceToCollection_NullResource" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.AddReferenceToCollection_NullResourceToBeAdded" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.AddReferenceToCollection_PropertyNotFound" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.AddReferenceToCollection_PropertyShouldBeAList" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.AddReferenceToCollection_WhitespacePropertyName" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.ClearChanges_ClearsChangesCollection" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.Constructor_ContainerSet" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.Constructor_NullContainer" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.Constructor_PendingChangesSet" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.CreateResource_AddsItemAsSaveIntoPendingChanges" executed="True" result="Success" success="True" time="0.003" asserts="3" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.CreateResource_CallsGetType" executed="True" result="Success" success="True" time="0.002" asserts="3" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.CreateResource_EmptyContainerName" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.CreateResource_EmptyFullTypeName" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.CreateResource_NullContainerName" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.CreateResource_NullFullTypeName" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.CreateResource_WhiteSpaceContainerName" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.CreateResource_WhiteSpaceFullTypeName" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.DeleteResource_AddsDeleteEntryIntoPendingChanges" executed="True" result="Success" success="True" time="0.001" asserts="3" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.DeleteResource_NullResource" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.GetResource_NullQuery" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.GetResource_ReturnsFirstItem" executed="True" result="Success" success="True" time="0.007" asserts="3" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.GetResource_ReturnsNullIfCollectionIsEmpty" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.GetValue_CorrectValueReturned" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.GetValue_EmptyPropertyName" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.GetValue_NullPropertyName" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.GetValue_NullResource" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.GetValue_UnknownPropertyName" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.GetValue_WhiteSpacePropertyName" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.MakeSureItInheritsFromIUpdatable" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.RemoveReferenceFromCollection_EmptyPropertyName" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.RemoveReferenceFromCollection_MakeSureObjectIsRemoved" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.RemoveReferenceFromCollection_NullPropertyName" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.RemoveReferenceFromCollection_NullResource" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.RemoveReferenceFromCollection_NullResourceToBeAdded" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.RemoveReferenceFromCollection_PropertyNotFound" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.RemoveReferenceFromCollection_PropertyShouldBeAList" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.RemoveReferenceFromCollection_WhitespacePropertyName" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.ResetResource_ReturnsWhatWasPassedToIt" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.ResolveResource_ReturnsWhatWasPassedToit" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SaveChanges_CallsSaveEntityCorrectNumberOfTimes" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SaveChanges_CorrectParametersWerePassed" executed="True" result="Success" success="True" time="0.001" asserts="2" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SaveChanges_PendingChangesIsCleared" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SetReference_CorrectValueSet" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SetReference_EmptyPropertyName" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SetReference_NullPropertyName" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SetReference_NullResource" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SetReference_UnknownPropertyName" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SetReference_WhiteSpacePropertyName" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SetValue_CorrectValueSet" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SetValue_EmptyPropertyName" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SetValue_NullPropertyName" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SetValue_NullResource" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SetValue_UnknownPropertyName" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.DataServiceUpdatableContextTests.SetValue_WhiteSpacePropertyName" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="PropertyTypeMustBeACollectionExceptionTests" executed="True" result="Success" success="True" time="0.003" asserts="0">
+                <results>
+                  <test-case name="WhippedCream.DataServiceDataLayer.PropertyTypeMustBeACollectionExceptionTests.Constructor_MessageCorrect" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.PropertyTypeMustBeACollectionExceptionTests.Constructor_NullType" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="UnknownPropertyExceptionTests" executed="True" result="Success" success="True" time="0.005" asserts="0">
+                <results>
+                  <test-case name="WhippedCream.DataServiceDataLayer.UnknownPropertyExceptionTests.Constructor_EmptyPropertyName" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.UnknownPropertyExceptionTests.Constructor_NullPropertyName" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.UnknownPropertyExceptionTests.Constructor_NullTargetType" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.UnknownPropertyExceptionTests.Constructor_WhitespacePropertyName" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.UnknownPropertyExceptionTests.MessageIsCorrect" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="WhippedCreamDataServiceHostTests" executed="True" result="Success" success="True" time="0.003" asserts="0">
+                <results>
+                  <test-case name="WhippedCream.DataServiceDataLayer.WhippedCreamDataServiceHostTests.Constructor_ContainerSet" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.DataServiceDataLayer.WhippedCreamDataServiceHostTests.Constructor_NullContainer" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="DefaultUrlServiceTests" executed="True" result="Success" success="True" time="0.058" asserts="0">
+            <results>
+              <test-case name="WhippedCream.DefaultUrlServiceTests.Constructor_BaseUriReturnsCorrectValue" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.Constructor_BaseUrlReturnsCorrectValue" executed="True" result="Success" success="True" time="0.025" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.Constructor_NullBaseUri" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUri_PathEmpty" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUri_PathNoPreceedingSlash" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUri_PathNull" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUri_PathPreceedingSlash" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUri_PathWhiteSpaceAllOver" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUri_ServicePrefixEmpty" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUri_ServicePrefixNoPostSlash" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUri_ServicePrefixNoPreceedingSlash" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUri_ServicePrefixNull" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUri_ServicePrefixPostSlash" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUri_ServicePrefixPreceedingSlash" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUri_ServicePrefixWhiteSpaceAllOver" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUrl_PathEmpty" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUrl_PathNoPreceedingSlash" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUrl_PathNull" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUrl_PathPreceedingSlash" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUrl_PathWhiteSpaceAllOver" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUrl_ServicePrefixEmpty" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUrl_ServicePrefixNoPostSlash" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUrl_ServicePrefixNoPreceedingSlash" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUrl_ServicePrefixNull" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUrl_ServicePrefixPostSlash" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUrl_ServicePrefixPreceedingSlash" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetServiceUrl_ServicePrefixWhiteSpaceAllOver" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetUri_NoPreceedingSlash" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetUri_NullPath" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetUri_PreceedingSlash" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetUri_WhiteSpaceAllOver" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetUrl_NoPreceedingSlash" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetUrl_NullPath" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetUrl_PreceedingSlash" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.DefaultUrlServiceTests.GetUrl_WhiteSpaceAllOver" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite type="Namespace" name="EntityFrameworkDataLayer" executed="True" result="Success" success="True" time="0.275" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="EntityFrameworkInitializerTests" executed="True" result="Success" success="True" time="0.272" asserts="0">
+                <results>
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_Equatable_False_ConnectionString" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_Equatable_False_CSDLResource" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_Equatable_False_DefaultContainerName" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_Equatable_False_MSLResource" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_Equatable_False_Provider" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_Equatable_False_SSDLResource" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_Equatable_True" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_False_ConnectionString" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_False_CSDLResource" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_False_DefaultContainerName" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_False_MSLResource" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_False_Provider" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_False_SSDLResource" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.Equals_True" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.GenerateConnectionStringTest" executed="True" result="Success" success="True" time="0.253" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.GetHashCodeTest" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.EntityFrameworkInitializerTests.GetHashCodeTestAgain" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="TestFixture" name="UnableToFindRepositoryInitializerExceptionTests" executed="True" result="Success" success="True" time="0.001" asserts="0">
+                <results>
+                  <test-case name="WhippedCream.EntityFrameworkDataLayer.UnableToFindRepositoryInitializerExceptionTests.MessageFormatedCorrectly" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="Namespace" name="InMemoryDataLayer" executed="True" result="Success" success="True" time="0.019" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="InMemoryPersistentMediumTests" executed="True" result="Success" success="True" time="0.019" asserts="0">
+                <results>
+                  <test-case name="WhippedCream.InMemoryDataLayer.InMemoryPersistentMediumTests.ClearAll" executed="True" result="Success" success="True" time="0.010" asserts="3" />
+                  <test-case name="WhippedCream.InMemoryDataLayer.InMemoryPersistentMediumTests.Constructor_StorageSet" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.InMemoryDataLayer.InMemoryPersistentMediumTests.GetStorage" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.InMemoryDataLayer.InMemoryPersistentMediumTests.GetStorage_AddsCollectionToStorage" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.InMemoryDataLayer.InMemoryPersistentMediumTests.GetStorage_DifferentRepo_DifferentCollection" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.InMemoryDataLayer.InMemoryPersistentMediumTests.GetStorage_SameCollection" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.InMemoryDataLayer.InMemoryPersistentMediumTests.GetStorage_SameCollection_ItemsPersist" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="RepositoryAttributeTests" executed="True" result="Success" success="True" time="0.027" asserts="0">
+            <results>
+              <test-case name="WhippedCream.RepositoryAttributeTests.Constructor_RepositoryTypeSet" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.RepositoryAttributeTests.Constructor_RepositoryTypeSet_Again" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.RepositoryAttributeTests.Constructor_StateSet" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.RepositoryAttributeTests.Constructor_StateSet_Again" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryAttributeTests.GetRepositories_IfThereAreMultipleOfOneState_OnlyOneIsReturned" executed="True" result="Success" success="True" time="0.021" asserts="3" />
+              <test-case name="WhippedCream.RepositoryAttributeTests.GetRepositories_ReturnsCorrectValues" executed="True" result="Success" success="True" time="0.001" asserts="4" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="RepositoryContextAttributeTests" executed="True" result="Success" success="True" time="0.008" asserts="0">
+            <results>
+              <test-case name="WhippedCream.RepositoryContextAttributeTests.Constructor_RepositoryTypeSet" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryContextAttributeTests.Constructor_RepositoryTypeSet_Again" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryContextAttributeTests.Constructor_StateSet" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryContextAttributeTests.Constructor_StateSet_Again" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryContextAttributeTests.GetRepositoryContexts_IfThereAreMultipleOfOneState_OnlyOneIsReturned" executed="True" result="Success" success="True" time="0.003" asserts="3" />
+              <test-case name="WhippedCream.RepositoryContextAttributeTests.GetRepositoryContexts_ReturnsCorrectValues" executed="True" result="Success" success="True" time="0.001" asserts="4" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="RepositoryContextExtensionsTests" executed="True" result="Success" success="True" time="0.007" asserts="0">
+            <results>
+              <test-case name="WhippedCream.RepositoryContextExtensionsTests.LoadProperty_CorrectParametersArePassed" executed="True" result="Success" success="True" time="0.002" asserts="3" />
+              <test-case name="WhippedCream.RepositoryContextExtensionsTests.LoadProperty_InvalidExpression" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+              <test-case name="WhippedCream.RepositoryContextExtensionsTests.LoadProperty_NullSelector" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="RepositoryDescriptionTests" executed="True" result="Success" success="True" time="0.012" asserts="0">
+            <results>
+              <test-case name="WhippedCream.RepositoryDescriptionTests.RepositoryAttributesSet" executed="True" result="Success" success="True" time="0.003" asserts="4" />
+              <test-case name="WhippedCream.RepositoryDescriptionTests.RepositoryContextAttributesSet" executed="True" result="Success" success="True" time="0.001" asserts="4" />
+              <test-case name="WhippedCream.RepositoryDescriptionTests.RepositoryTypeSet" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryDescriptionTests.ServicePath_NullWhenNotRegistered" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryDescriptionTests.ServicePathSet" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryDescriptionTests.ServicePathSet_Again" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryDescriptionTests.ServiceType_NullWhenNotRegistered" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryDescriptionTests.ServiceTypeSet" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryDescriptionTests.ServiceTypeSet_Again" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="RepositoryServicePathAttributeTests" executed="True" result="Success" success="True" time="0.003" asserts="0">
+            <results>
+              <test-case name="WhippedCream.RepositoryServicePathAttributeTests.Constructor_PathSet" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryServicePathAttributeTests.GetPath" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryServicePathAttributeTests.GetPathAgain" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="RepositoryServiceTypeAttributeTests" executed="True" result="Success" success="True" time="0.002" asserts="0">
+            <results>
+              <test-case name="WhippedCream.RepositoryServiceTypeAttributeTests.Constructor_PathSet" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryServiceTypeAttributeTests.GetPath" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.RepositoryServiceTypeAttributeTests.GetPathAgain" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="WhippedCreamDataLayerTests" executed="True" result="Success" success="True" time="0.089" asserts="0">
+            <results>
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.Boostrap_UrlServiceIsRegistered" executed="True" result="Success" success="True" time="0.022" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_BaseUri_Null" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_ContainerSet" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_ContainerSet_Null" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+              <test-suite type="ParameterizedTest" name="Bootstrap_ServicesCanResolve" executed="True" result="Success" success="True" time="0.007" asserts="0">
+                <results>
+                  <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_ServicesCanResolve_IRepositoryContextFactory" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                  <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_ServicesCanResolve_IWhippedCreamDataLayer" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_ServicesCanResolve_IRepositoryFactory" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_ServicesCanResolve_IUrlService" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_ServicesCanResolve_IInMemoryPersistentMedium" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                </results>
+              </test-suite>
+              <test-suite type="ParameterizedTest" name="Bootstrap_ServicesRegistered" executed="True" result="Success" success="True" time="0.004" asserts="0">
+                <results>
+                  <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_ServicesRegistered_IWhippedCreamDataLayer" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_ServicesRegistered_IRepositoryContextFactory" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+                  <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_ServicesRegistered_IInMemoryPersistentMedium" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_ServicesRegistered_IUrlService" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="WhippedCream.WhippedCreamDataLayerTests.Bootstrap_ServicesRegistered_IRepositoryFactory" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                </results>
+              </test-suite>
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.Constructor_StateIsSetToLive" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.CreateRepository_Live" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.CreateRepository_RepositoryDescriptionsAdded" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.CreateRepository_Testing" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.CreateRepository_UnregisteredRepository_Live_ExpectNull" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.CreateRepository_UnregisteredRepository_Testing_ExpectNull" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.CreateRepositoryContext_Live" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.CreateRepositoryContext_RepositoryDescriptionsAdded" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.CreateRepositoryContext_Testing" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.CreateRepositoryContext_UnregisteredRepository_Live_ExpectNull" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.CreateRepositoryContext_UnregisteredRepository_Testing_ExpectNull" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.GetRepositoryDescription" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.GetRepositoryDescription_RegistersRepository" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.GetServiceHost_RegistersRepository" executed="True" result="Success" success="True" time="0.007" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.GetServiceHost_ReturnsWhippedCreamDataServiceHost" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.GetServiceHost_UnregisteredService" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.GetServiceUri" executed="True" result="Success" success="True" time="0.009" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.GetServiceUri_RepositoryDescriptionsAdded" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.GetServiceUrl" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.GetServiceUrl_RepositoryDescriptionsAdded" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="WhippedCream.WhippedCreamDataLayerTests.RegisterRepository_RepositoryDescriptionAdded" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

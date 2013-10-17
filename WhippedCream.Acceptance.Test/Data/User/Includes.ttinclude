@@ -1,0 +1,2 @@
+<#@ assembly name="..\..\..\packages\KCLTextTemplating\lib\net40\Mono.TextTemplating.Utility.dll" #>
+<#@ import namespace="Mono.TextTemplating.Utility.EntityFramework" #>

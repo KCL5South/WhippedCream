@@ -1,0 +1,3 @@
+﻿<#+
+public const string TemplateId = "CSharp_DbContext_Context_EF5";
+#>

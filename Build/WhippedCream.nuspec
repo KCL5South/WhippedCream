@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>WhippedCream</id>
+        <version>1.0.0</version>
+        <authors>5 South</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A Data Layer Library</description>
+        <dependencies>
+            <group targetFramework=".NETFramework4.0">
+                <dependency id="Microsoft.Data.Services" version="5.5.0" />
+                <dependency id="Unity" version="2.0" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\ArgumentNotNull.ttinclude" target="content\ArgumentNotNull.ttinclude" />
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\CodeStringGenerator.ttinclude" target="content\CodeStringGenerator.ttinclude" />
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\Context.ttinclude" target="content\Context.ttinclude" />
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\DataService.ttinclude" target="content\DataService.ttinclude" />
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\DataServiceContext.ttinclude" target="content\DataServiceContext.ttinclude" />
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\EdmMetadataLoader.ttinclude" target="content\EdmMetadataLoader.ttinclude" />
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\InMemoryRepo.ttinclude" target="content\InMemoryRepo.ttinclude" />
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\Models.ttinclude" target="content\Models.ttinclude" />
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\Repository.ttinclude" target="content\Repository.ttinclude" />
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\ResourceManager.ttinclude" target="content\ResourceManager.ttinclude" />
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\TemplateId.ttinclude" target="content\TemplateId.ttinclude" />
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\TypeMapper.ttinclude" target="content\TypeMapper.ttinclude" />
+        <file src="..\WhippedCream.Acceptance.Test\Data\Includes\Includes.ttinclude" target="content\Includes.ttinclude" />
+        <file src="..\WhippedCream\bin\Release\WhippedCream.dll" target="lib\net40\WhippedCream.dll" />
+        <file src="..\WhippedCream\bin\Release\WhippedCream.XML" target="lib\net40\WhippedCream.XML" />
+    </files>
+</package>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
+    <changeSet author="kaf2073 (generated)" id="1374094148399-2">
+        <createTable schemaName="dbo" tableName="tb_Awards">
+            <column name="UserId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AwardId" type="uniqueidentifier">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_tb_Awards_1"/>
+            </column>
+            <column name="Type" type="INT"/>
+            <column name="DateReceived" type="DATETIME"/>
+            <column name="Description" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-8">
+        <createTable schemaName="dbo" tableName="tb_Files">
+            <column name="UserId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FileKey" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FileType" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EntryDate" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-9">
+        <createTable schemaName="dbo" tableName="tb_Files_FileData">
+            <column name="FileKey" type="uniqueidentifier">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_tb_Files_FileData"/>
+            </column>
+            <column name="FileData" type="varbinary(8000)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-10">
+        <createTable schemaName="dbo" tableName="tb_Files_WizardInfo">
+            <column name="FileKey" type="uniqueidentifier">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_tb_Files_WizardInfo"/>
+            </column>
+            <column name="ClientFirstName" type="VARCHAR(50)"/>
+            <column name="ClientLastName" type="VARCHAR(50)"/>
+            <column name="RunDate" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-45">
+        <createTable schemaName="dbo" tableName="tb_Users">
+            <column name="UserId" type="uniqueidentifier">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_Users"/>
+            </column>
+            <column name="Name_First" type="NVARCHAR(32)"/>
+            <column name="Name_Middle" type="NVARCHAR(32)"/>
+            <column name="Name_Last" type="NVARCHAR(32)"/>
+            <column name="Name_Suffix" type="NVARCHAR(64)"/>
+            <column name="Name_Prefix" type="NVARCHAR(64)"/>
+            <column name="Type" type="INT"/>
+            <column name="UsernameId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-46">
+        <createTable schemaName="dbo" tableName="tb_Users_Addresses">
+            <column name="UserId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AddressId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PrimaryAddress" type="NVARCHAR(128)"/>
+            <column name="SecondaryAddress" type="NVARCHAR(128)"/>
+            <column name="Suite" type="NVARCHAR(32)"/>
+            <column name="POBox" type="NVARCHAR(32)"/>
+            <column name="City" type="NVARCHAR(64)"/>
+            <column name="State" type="NVARCHAR(2)"/>
+            <column name="ZipCode_Primary" type="NVARCHAR(5)"/>
+            <column name="ZipCode_Secondary" type="NVARCHAR(4)"/>
+            <column name="Type" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-47">
+        <createTable schemaName="dbo" tableName="tb_Users_AgentAgencyAssociations">
+            <column name="AssociationId" type="uniqueidentifier">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_tb_Users_AgentAgencyAssociations"/>
+            </column>
+            <column name="AgentId" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AgencyId" type="VARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-48">
+        <createTable schemaName="dbo" tableName="tb_Users_AgentIds">
+            <column name="UserId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="AgentIdId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Value" type="NVARCHAR(16)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Type" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-49">
+        <createTable schemaName="dbo" tableName="tb_Users_Badges">
+            <column name="UserId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="BadgeId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Type" type="INT"/>
+            <column name="DateReceived" type="DATETIME"/>
+            <column name="Description" type="VARCHAR(100)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-50">
+        <createTable schemaName="dbo" tableName="tb_Users_ContactNumbers">
+            <column name="UserId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ContactNumberId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Number" type="NVARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Extension" type="NVARCHAR(16)"/>
+            <column name="Type" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-51">
+        <createTable schemaName="dbo" tableName="tb_Users_EMailAddresses">
+            <column name="UserId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMailAddressId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Address" type="NVARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Type" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-52">
+        <createTable schemaName="dbo" tableName="tb_Users_Preferences">
+            <column name="UserId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="PreferenceId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Type" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Value" type="NVARCHAR(256)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-53">
+        <createTable schemaName="dbo" tableName="tb_Users_Websites">
+            <column name="UserId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="WebsiteId" type="uniqueidentifier">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Address" type="NVARCHAR(128)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Type" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-62">
+        <addPrimaryKey columnNames="UserId, FileKey" constraintName="PK_tb_Files" schemaName="dbo" tableName="tb_Files"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-69">
+        <addPrimaryKey columnNames="UserId, AddressId" constraintName="PK_Addresses" schemaName="dbo" tableName="tb_Users_Addresses"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-70">
+        <addPrimaryKey columnNames="AgentIdId, UserId" constraintName="PK_AgentIds" schemaName="dbo" tableName="tb_Users_AgentIds"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-71">
+        <addPrimaryKey columnNames="UserId, BadgeId" constraintName="PK_tb_Users_Badges" schemaName="dbo" tableName="tb_Users_Badges"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-72">
+        <addPrimaryKey columnNames="UserId, ContactNumberId" constraintName="PK_ContactNumbers" schemaName="dbo" tableName="tb_Users_ContactNumbers"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-73">
+        <addPrimaryKey columnNames="UserId, EMailAddressId" constraintName="PK_EMailAddresses" schemaName="dbo" tableName="tb_Users_EMailAddresses"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-74">
+        <addPrimaryKey columnNames="UserId, PreferenceId" constraintName="PK_tb_Users_Preferences" schemaName="dbo" tableName="tb_Users_Preferences"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-75">
+        <addPrimaryKey columnNames="UserId, WebsiteId" constraintName="PK_Websites" schemaName="dbo" tableName="tb_Users_Websites"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-76">
+        <addForeignKeyConstraint baseColumnNames="UserId" baseTableName="tb_Users_Addresses" baseTableSchemaName="dbo" constraintName="FK_UserAddress" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="UserId" referencedTableName="tb_Users" referencedTableSchemaName="dbo" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-77">
+        <addForeignKeyConstraint baseColumnNames="UserId" baseTableName="tb_Users_AgentIds" baseTableSchemaName="dbo" constraintName="FK_UserAgentId" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="UserId" referencedTableName="tb_Users" referencedTableSchemaName="dbo" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-78">
+        <addForeignKeyConstraint baseColumnNames="UserId" baseTableName="tb_Users_Badges" baseTableSchemaName="dbo" constraintName="FK_Users_Badges" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="UserId" referencedTableName="tb_Users" referencedTableSchemaName="dbo" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-79">
+        <addForeignKeyConstraint baseColumnNames="UserId" baseTableName="tb_Users_ContactNumbers" baseTableSchemaName="dbo" constraintName="FK_UserContactNumber" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="UserId" referencedTableName="tb_Users" referencedTableSchemaName="dbo" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-80">
+        <addForeignKeyConstraint baseColumnNames="UserId" baseTableName="tb_Users_EMailAddresses" baseTableSchemaName="dbo" constraintName="FK_UserEMailAddress" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="UserId" referencedTableName="tb_Users" referencedTableSchemaName="dbo" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-81">
+        <addForeignKeyConstraint baseColumnNames="UserId" baseTableName="tb_Users_Preferences" baseTableSchemaName="dbo" constraintName="FK_UserPreference" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="UserId" referencedTableName="tb_Users" referencedTableSchemaName="dbo" referencesUniqueColumn="false"/>
+    </changeSet>
+    <changeSet author="kaf2073 (generated)" id="1374094148399-82">
+        <addForeignKeyConstraint baseColumnNames="UserId" baseTableName="tb_Users_Websites" baseTableSchemaName="dbo" constraintName="FK_UserWebsite" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="UserId" referencedTableName="tb_Users" referencedTableSchemaName="dbo" referencesUniqueColumn="false"/>
+</changeSet>    
+
+	<changeSet author="mitch" id="MultiplyByTwoQuietTable">
+		<createTable schemaName="dbo" tableName="tb_MultiplyByTwoQuietResults">
+			<column name="Id" type="UNIQUEIDENTIFIER">
+				<constraints nullable="false"/>
+			</column>
+			<column name="Result" type="INT">
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="mitch" id="QueryFunction">
+		<sql>	
+			CREATE PROCEDURE usp_QueryAwards
+				-- Add the parameters for the stored procedure here
+				@number int
+			as
+			begin
+				-- set nocount on added to prevent extra result sets from
+				-- interfering with select statements.
+
+			    -- insert statements for procedure here
+				select top(@number) *
+				from tb_awards
+			end
+		</sql>
+		<sql>
+			CREATE PROCEDURE usp_MultiplyByTwo
+				@number int
+			AS
+			BEGIN
+				RETURN @number * 2
+			END
+		</sql>
+		<sql>
+			CREATE PROCEDURE usp_MultiplyByTwoQuiet
+				@number int
+			AS
+			BEGIN
+				INSERT INTO tb_MultiplyByTwoQuietResults
+				VALUES (NEWID(),
+					@number * 2)
+			END
+		</sql>
+		<sql>
+			CREATE PROCEDURE usp_MultiplyByTwoOut
+				@number int,
+				@result int OUTPUT
+			AS
+			BEGIN
+				SET @result = @number * 2
+			END
+		</sql>
+		<rollback>
+			<sql>
+				DROP PROCEDURE usp_QueryAwards
+				DROP PROCEDURE usp_MultiplyByTwo
+				DROP PROCEDURE usp_MultiplyByTwoQuiet
+				DROP PROCEDURE usp_MultiplyByTwoOut
+			</sql>
+		</rollback>
+	</changeSet>
+</databaseChangeLog>

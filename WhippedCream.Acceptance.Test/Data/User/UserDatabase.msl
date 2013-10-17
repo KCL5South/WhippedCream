@@ -1,0 +1,170 @@
+﻿<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+	<EntityContainerMapping StorageEntityContainer="UsersStoreContainer" CdmEntityContainer="UserRepository">
+		<EntitySetMapping Name="Users">
+			<EntityTypeMapping TypeName="IsTypeOf(WhippedCream.Data.User.User)">
+				<MappingFragment StoreEntitySet="tb_Users">
+					<ScalarProperty Name="UsernameId" ColumnName="UsernameId" />
+					<ScalarProperty Name="Type" ColumnName="Type" />
+					<ScalarProperty Name="UserId" ColumnName="UserId" />
+					<ComplexProperty Name="Name">
+						<ScalarProperty Name="Prefix" ColumnName="Name_Prefix" />
+						<ScalarProperty Name="Suffix" ColumnName="Name_Suffix" />
+						<ScalarProperty Name="Last" ColumnName="Name_Last" />
+						<ScalarProperty Name="Middle" ColumnName="Name_Middle" />
+						<ScalarProperty Name="First" ColumnName="Name_First" />
+					</ComplexProperty>
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="Addresses">
+			<EntityTypeMapping TypeName="IsTypeOf(WhippedCream.Data.User.Address)">
+				<MappingFragment StoreEntitySet="tb_Users_Addresses">
+					<ScalarProperty Name="Type" ColumnName="Type" />
+					<ScalarProperty Name="State" ColumnName="State" />
+					<ScalarProperty Name="City" ColumnName="City" />
+					<ScalarProperty Name="POBox" ColumnName="POBox" />
+					<ScalarProperty Name="Suite" ColumnName="Suite" />
+					<ScalarProperty Name="SecondaryAddress" ColumnName="SecondaryAddress" />
+					<ScalarProperty Name="PrimaryAddress" ColumnName="PrimaryAddress" />
+					<ScalarProperty Name="AddressId" ColumnName="AddressId" />
+					<ScalarProperty Name="UserId" ColumnName="UserId" />
+					<ComplexProperty Name="ZipCode">
+						<ScalarProperty Name="Secondary" ColumnName="ZipCode_Secondary" />
+						<ScalarProperty Name="Primary" ColumnName="ZipCode_Primary" />
+					</ComplexProperty>
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="AgentIds">
+			<EntityTypeMapping TypeName="IsTypeOf(WhippedCream.Data.User.AgentId)">
+				<MappingFragment StoreEntitySet="tb_Users_AgentIds">
+					<ScalarProperty Name="Type" ColumnName="Type" />
+					<ScalarProperty Name="Value" ColumnName="Value" />
+					<ScalarProperty Name="AgentIdId" ColumnName="AgentIdId" />
+					<ScalarProperty Name="UserId" ColumnName="UserId" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="ContactNumbers">
+			<EntityTypeMapping TypeName="IsTypeOf(WhippedCream.Data.User.ContactNumber)">
+				<MappingFragment StoreEntitySet="tb_Users_ContactNumbers">
+					<ScalarProperty Name="Type" ColumnName="Type" />
+					<ScalarProperty Name="Extension" ColumnName="Extension" />
+					<ScalarProperty Name="Number" ColumnName="Number" />
+					<ScalarProperty Name="ContactNumberId" ColumnName="ContactNumberId" />
+					<ScalarProperty Name="UserId" ColumnName="UserId" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="EMailAddresses">
+			<EntityTypeMapping TypeName="IsTypeOf(WhippedCream.Data.User.EMailAddress)">
+				<MappingFragment StoreEntitySet="tb_Users_EMailAddresses">
+					<ScalarProperty Name="Type" ColumnName="Type" />
+					<ScalarProperty Name="Address" ColumnName="Address" />
+					<ScalarProperty Name="EMailAddressId" ColumnName="EMailAddressId" />
+					<ScalarProperty Name="UserId" ColumnName="UserId" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="Preferences">
+			<EntityTypeMapping TypeName="IsTypeOf(WhippedCream.Data.User.Preference)">
+				<MappingFragment StoreEntitySet="tb_Users_Preferences">
+					<ScalarProperty Name="Value" ColumnName="Value" />
+					<ScalarProperty Name="Type" ColumnName="Type" />
+					<ScalarProperty Name="PreferenceId" ColumnName="PreferenceId" />
+					<ScalarProperty Name="UserId" ColumnName="UserId" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="Websites">
+			<EntityTypeMapping TypeName="IsTypeOf(WhippedCream.Data.User.Website)">
+				<MappingFragment StoreEntitySet="tb_Users_Websites">
+					<ScalarProperty Name="Type" ColumnName="Type" />
+					<ScalarProperty Name="Address" ColumnName="Address" />
+					<ScalarProperty Name="WebsiteId" ColumnName="WebsiteId" />
+					<ScalarProperty Name="UserId" ColumnName="UserId" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="AgentAgencyAssociations">
+			<EntityTypeMapping TypeName="WhippedCream.Data.User.AgentAgencyAssociation">
+				<MappingFragment StoreEntitySet="tb_Users_AgentAgencyAssociations">
+					<ScalarProperty Name="AgencyId" ColumnName="AgencyId" />
+					<ScalarProperty Name="AgentId" ColumnName="AgentId" />
+					<ScalarProperty Name="AssociationId" ColumnName="AssociationId" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="Badges">
+			<EntityTypeMapping TypeName="WhippedCream.Data.User.Badges">
+				<MappingFragment StoreEntitySet="tb_Users_Badges">
+					<ScalarProperty Name="Description" ColumnName="Description" />
+					<ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+					<ScalarProperty Name="Type" ColumnName="Type" />
+					<ScalarProperty Name="BadgeId" ColumnName="BadgeId" />
+					<ScalarProperty Name="UserId" ColumnName="UserId" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="Awards">
+			<EntityTypeMapping TypeName="WhippedCream.Data.User.Awards">
+				<MappingFragment StoreEntitySet="tb_Awards">
+					<ScalarProperty Name="Description" ColumnName="Description" />
+					<ScalarProperty Name="DateReceived" ColumnName="DateReceived" />
+					<ScalarProperty Name="Type" ColumnName="Type" />
+					<ScalarProperty Name="AwardId" ColumnName="AwardId" />
+					<ScalarProperty Name="UserId" ColumnName="UserId" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="Files">
+			<EntityTypeMapping TypeName="WhippedCream.Data.User.Files">
+				<MappingFragment StoreEntitySet="tb_Files">
+					<ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+					<ScalarProperty Name="FileType" ColumnName="FileType" />
+					<ScalarProperty Name="FileKey" ColumnName="FileKey" />
+					<ScalarProperty Name="UserId" ColumnName="UserId" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="FilesFileDatas">
+			<EntityTypeMapping TypeName="WhippedCream.Data.User.FilesFileData">
+				<MappingFragment StoreEntitySet="tb_Files_FileData">
+					<ScalarProperty Name="FileData" ColumnName="FileData" />
+					<ScalarProperty Name="FileKey" ColumnName="FileKey" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="FilesWizardInfoes">
+			<EntityTypeMapping TypeName="WhippedCream.Data.User.FilesWizardInfo">
+				<MappingFragment StoreEntitySet="tb_Files_WizardInfo">
+					<ScalarProperty Name="RunDate" ColumnName="RunDate" />
+					<ScalarProperty Name="ClientLastName" ColumnName="ClientLastName" />
+					<ScalarProperty Name="ClientFirstName" ColumnName="ClientFirstName" />
+					<ScalarProperty Name="FileKey" ColumnName="FileKey" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="LoginEntries">
+			<EntityTypeMapping TypeName="WhippedCream.Data.User.LoginEntry">
+				<MappingFragment StoreEntitySet="tb_Users_Login">
+					<ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
+					<ScalarProperty Name="UserId" ColumnName="UserId" />
+					<ScalarProperty Name="LoginId" ColumnName="LoginId" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+		<EntitySetMapping Name="MultiplyByTwoResults">
+			<EntityTypeMapping TypeName="WhippedCream.Data.User.MultiplyByTwoResult">
+				<MappingFragment StoreEntitySet="tb_MultiplyByTwoQuietResults">
+					<ScalarProperty Name="Id" ColumnName="Id" />
+					<ScalarProperty Name="Result" ColumnName="Result" />
+				</MappingFragment>
+			</EntityTypeMapping>
+		</EntitySetMapping>
+
+		<FunctionImportMapping FunctionImportName="QueryAwards" FunctionName="Users.Store.usp_QueryAwards" />
+		<FunctionImportMapping FunctionImportName="MultiplyByTwo" FunctionName="Users.Store.usp_MultiplyByTwo" />
+		<FunctionImportMapping FunctionImportName="MultiplyByTwoQuiet" FunctionName="Users.Store.usp_MultiplyByTwoQuiet" />
+	</EntityContainerMapping>
+</Mapping>

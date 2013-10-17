@@ -1,0 +1,296 @@
+﻿<Schema Namespace="Users.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008"
+        xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"
+        xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+	<EntityContainer Name="UsersStoreContainer">
+		<EntitySet Name="tb_Awards" EntityType="Users.Store.tb_Awards" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Files" EntityType="Users.Store.tb_Files" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Files_FileData" EntityType="Users.Store.tb_Files_FileData" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Files_WizardInfo" EntityType="Users.Store.tb_Files_WizardInfo" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Users" EntityType="Users.Store.tb_Users" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Users_Addresses" EntityType="Users.Store.tb_Users_Addresses" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Users_AgentAgencyAssociations" EntityType="Users.Store.tb_Users_AgentAgencyAssociations" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Users_AgentIds" EntityType="Users.Store.tb_Users_AgentIds" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Users_Badges" EntityType="Users.Store.tb_Users_Badges" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Users_ContactNumbers" EntityType="Users.Store.tb_Users_ContactNumbers" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Users_EMailAddresses" EntityType="Users.Store.tb_Users_EMailAddresses" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Users_Login" EntityType="Users.Store.tb_Users_Login" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Users_Preferences" EntityType="Users.Store.tb_Users_Preferences" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_Users_Websites" EntityType="Users.Store.tb_Users_Websites" store:Type="Tables" Schema="dbo" />
+		<EntitySet Name="tb_MultiplyByTwoQuietResults" EntityType="Users.Store.tb_MultiplyByTwoQuietResults" store:Type="Tables" Schema="dbo" />
+		<AssociationSet Name="FK_UserAddress" Association="Users.Store.FK_UserAddress">
+			<End Role="tb_Users" EntitySet="tb_Users" />
+			<End Role="tb_Users_Addresses" EntitySet="tb_Users_Addresses" />
+		</AssociationSet>
+		<AssociationSet Name="FK_UserAgentId" Association="Users.Store.FK_UserAgentId">
+			<End Role="tb_Users" EntitySet="tb_Users" />
+			<End Role="tb_Users_AgentIds" EntitySet="tb_Users_AgentIds" />
+		</AssociationSet>
+		<AssociationSet Name="FK_UserContactNumber" Association="Users.Store.FK_UserContactNumber">
+			<End Role="tb_Users" EntitySet="tb_Users" />
+			<End Role="tb_Users_ContactNumbers" EntitySet="tb_Users_ContactNumbers" />
+		</AssociationSet>
+		<AssociationSet Name="FK_UserEMailAddress" Association="Users.Store.FK_UserEMailAddress">
+			<End Role="tb_Users" EntitySet="tb_Users" />
+			<End Role="tb_Users_EMailAddresses" EntitySet="tb_Users_EMailAddresses" />
+		</AssociationSet>
+		<AssociationSet Name="FK_UserPreference" Association="Users.Store.FK_UserPreference">
+			<End Role="tb_Users" EntitySet="tb_Users" />
+			<End Role="tb_Users_Preferences" EntitySet="tb_Users_Preferences" />
+		</AssociationSet>
+		<AssociationSet Name="FK_Users_Badges" Association="Users.Store.FK_Users_Badges">
+			<End Role="tb_Users" EntitySet="tb_Users" />
+			<End Role="tb_Users_Badges" EntitySet="tb_Users_Badges" />
+		</AssociationSet>
+		<AssociationSet Name="FK_UserWebsite" Association="Users.Store.FK_UserWebsite">
+			<End Role="tb_Users" EntitySet="tb_Users" />
+			<End Role="tb_Users_Websites" EntitySet="tb_Users_Websites" />
+		</AssociationSet>
+	</EntityContainer>
+	<EntityType Name="tb_Awards">
+		<Key>
+			<PropertyRef Name="AwardId" />
+		</Key>
+		<Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="AwardId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="Type" Type="int" />
+		<Property Name="DateReceived" Type="datetime" />
+		<Property Name="Description" Type="varchar" MaxLength="100" />
+	</EntityType>
+	<EntityType Name="tb_Files">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="FileKey" />
+		</Key>
+		<Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="FileKey" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="FileType" Type="int" Nullable="false" />
+		<Property Name="EntryDate" Type="datetime" Nullable="false" />
+	</EntityType>
+	<EntityType Name="tb_Files_FileData">
+		<Key>
+			<PropertyRef Name="FileKey" />
+		</Key>
+		<Property Name="FileKey" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="FileData" Type="varbinary(max)" Nullable="false" />
+	</EntityType>
+	<EntityType Name="tb_Files_WizardInfo">
+		<Key>
+			<PropertyRef Name="FileKey" />
+		</Key>
+		<Property Name="FileKey" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="ClientFirstName" Type="varchar" MaxLength="50" />
+		<Property Name="ClientLastName" Type="varchar" MaxLength="50" />
+		<Property Name="RunDate" Type="datetime" />
+	</EntityType>
+	<EntityType Name="tb_Users">
+		<Key>
+			<PropertyRef Name="UserId" />
+		</Key>
+		<Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="Name_First" Type="nvarchar" MaxLength="32" />
+		<Property Name="Name_Middle" Type="nvarchar" MaxLength="32" />
+		<Property Name="Name_Last" Type="nvarchar" MaxLength="32" />
+		<Property Name="Name_Suffix" Type="nvarchar" MaxLength="64" />
+		<Property Name="Name_Prefix" Type="nvarchar" MaxLength="64" />
+		<Property Name="Type" Type="int" />
+		<Property Name="UsernameId" Type="uniqueidentifier" Nullable="false" />
+	</EntityType>
+	<EntityType Name="tb_Users_Addresses">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="AddressId" />
+		</Key>
+		<Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="AddressId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="PrimaryAddress" Type="nvarchar" MaxLength="128" />
+		<Property Name="SecondaryAddress" Type="nvarchar" MaxLength="128" />
+		<Property Name="Suite" Type="nvarchar" MaxLength="32" />
+		<Property Name="POBox" Type="nvarchar" MaxLength="32" />
+		<Property Name="City" Type="nvarchar" MaxLength="64" />
+		<Property Name="State" Type="nvarchar" MaxLength="2" />
+		<Property Name="ZipCode_Primary" Type="nvarchar" MaxLength="5" />
+		<Property Name="ZipCode_Secondary" Type="nvarchar" MaxLength="4" />
+		<Property Name="Type" Type="int" Nullable="false" />
+	</EntityType>
+	<EntityType Name="tb_Users_AgentAgencyAssociations">
+		<Key>
+			<PropertyRef Name="AssociationId" />
+		</Key>
+		<Property Name="AssociationId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="AgentId" Type="varchar" Nullable="false" MaxLength="16" />
+		<Property Name="AgencyId" Type="varchar" Nullable="false" MaxLength="16" />
+	</EntityType>
+	<EntityType Name="tb_Users_AgentIds">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="AgentIdId" />
+		</Key>
+		<Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="AgentIdId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="16" />
+		<Property Name="Type" Type="int" Nullable="false" />
+	</EntityType>
+	<EntityType Name="tb_Users_Badges">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="BadgeId" />
+		</Key>
+		<Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="BadgeId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="Type" Type="int" />
+		<Property Name="DateReceived" Type="datetime" />
+		<Property Name="Description" Type="varchar" MaxLength="100" />
+	</EntityType>
+	<EntityType Name="tb_Users_ContactNumbers">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="ContactNumberId" />
+		</Key>
+		<Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="ContactNumberId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="Number" Type="nvarchar" Nullable="false" MaxLength="32" />
+		<Property Name="Extension" Type="nvarchar" MaxLength="16" />
+		<Property Name="Type" Type="int" Nullable="false" />
+	</EntityType>
+	<EntityType Name="tb_Users_EMailAddresses">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="EMailAddressId" />
+		</Key>
+		<Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="EMailAddressId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="64" />
+		<Property Name="Type" Type="int" Nullable="false" />
+	</EntityType>
+	<EntityType Name="tb_Users_Login">
+		<Key>
+			<PropertyRef Name="LoginId" />
+		</Key>
+		<Property Name="LoginId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="LoginDate" Type="datetime" Nullable="false" />
+	</EntityType>
+	<EntityType Name="tb_Users_Preferences">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="PreferenceId" />
+		</Key>
+		<Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="PreferenceId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="Type" Type="int" Nullable="false" />
+		<Property Name="Value" Type="nvarchar" MaxLength="256" />
+	</EntityType>
+	<EntityType Name="tb_Users_Websites">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="WebsiteId" />
+		</Key>
+		<Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="WebsiteId" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="128" />
+		<Property Name="Type" Type="int" Nullable="false" />
+	</EntityType>
+	<EntityType Name="tb_MultiplyByTwoQuietResults">
+		<Key>
+			<PropertyRef Name="Id" />
+		</Key>
+		<Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+		<Property Name="Result" Type="int" Nullable="false" />
+	</EntityType>
+	<Association Name="FK_UserAddress">
+		<End Role="tb_Users" Type="Users.Store.tb_Users" Multiplicity="1" />
+		<End Role="tb_Users_Addresses" Type="Users.Store.tb_Users_Addresses" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="tb_Users">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="tb_Users_Addresses">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Association Name="FK_UserAgentId">
+		<End Role="tb_Users" Type="Users.Store.tb_Users" Multiplicity="1" />
+		<End Role="tb_Users_AgentIds" Type="Users.Store.tb_Users_AgentIds" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="tb_Users">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="tb_Users_AgentIds">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Association Name="FK_UserContactNumber">
+		<End Role="tb_Users" Type="Users.Store.tb_Users" Multiplicity="1" />
+		<End Role="tb_Users_ContactNumbers" Type="Users.Store.tb_Users_ContactNumbers" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="tb_Users">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="tb_Users_ContactNumbers">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Association Name="FK_UserEMailAddress">
+		<End Role="tb_Users" Type="Users.Store.tb_Users" Multiplicity="1" />
+		<End Role="tb_Users_EMailAddresses" Type="Users.Store.tb_Users_EMailAddresses" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="tb_Users">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="tb_Users_EMailAddresses">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Association Name="FK_UserPreference">
+		<End Role="tb_Users" Type="Users.Store.tb_Users" Multiplicity="1" />
+		<End Role="tb_Users_Preferences" Type="Users.Store.tb_Users_Preferences" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="tb_Users">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="tb_Users_Preferences">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Association Name="FK_Users_Badges">
+		<End Role="tb_Users" Type="Users.Store.tb_Users" Multiplicity="1" />
+		<End Role="tb_Users_Badges" Type="Users.Store.tb_Users_Badges" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="tb_Users">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="tb_Users_Badges">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Association Name="FK_UserWebsite">
+		<End Role="tb_Users" Type="Users.Store.tb_Users" Multiplicity="1" />
+		<End Role="tb_Users_Websites" Type="Users.Store.tb_Users_Websites" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="tb_Users">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="tb_Users_Websites">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Function Name="usp_QueryAwards" Aggregate="false" BuiltIn="false" NiladicFunction="false"
+			IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+		<Parameter Name="number" Type="int" Mode="In" />
+	</Function>
+	<Function Name="usp_MultiplyByTwo" Aggregate="false" BuiltIn="false" NiladicFunction="false"
+			IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+		<Parameter Name="number" Type="int" Mode="In" />
+	</Function>
+	<Function	Name="usp_MultiplyByTwoQuiet" Aggregate="false" BuiltIn="false" NiladicFunction="false"
+			IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+		<Parameter Name="number" Type="int" Mode="In" />
+	</Function>
+</Schema>

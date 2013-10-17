@@ -1,0 +1,474 @@
+﻿<#@ include file="Includes.ttinclude"#>
+<#@ include file="ArgumentNotNull.ttinclude"#>
+<#@ include file="CodeStringGenerator.ttinclude"#>
+<#@ include file="EdmMetadataLoader.ttinclude"#>
+<#@ include file="ResourceManager.ttinclude"#>
+<#@ include file="TemplateId.ttinclude"#>
+<#@ include file="TypeMapper.ttinclude"#>
+
+<#
+//----  READ ME ----
+// This template needs reference to the Mono.TextTemplating.Utility.dll
+// and the Mono.TextTemplating.Utility namespace needs to be imported
+// Example:
+//  assembly name="<PathTo>\Mono.TextTemplating.Utility.dll"
+//  import namespace="Mono.TextTemplating.Utility.EntityFramework"
+//------------------
+
+var textTransform = DynamicTextTransformation.Create(this);
+var code = new CodeGenerationTools(this);
+var ef = new MetadataTools(this);
+var typeMapper = new TypeMapper(code, ef, textTransform.Errors);
+var	fileManager = EntityFrameworkTemplateFileManager.Create(this);
+var itemCollection = new EdmMetadataLoader(textTransform.Host, textTransform.Errors).CreateEdmItemCollection(inputFile);
+var codeStringGenerator = new CodeStringGenerator(code, typeMapper, ef);
+
+if (!typeMapper.VerifyCaseInsensitiveTypeUniqueness(typeMapper.GetAllGlobalItems(itemCollection), inputFile))
+{
+    return string.Empty;
+}
+
+WriteHeader(codeStringGenerator, fileManager);
+
+//Entity Type
+foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection))
+{
+    fileManager.StartNewFile(entity.Name + ".cs");
+    BeginNamespace(entity);
+#>
+<#=codeStringGenerator.UsingDirectives(inHeader: false)#>
+[System.Data.Services.Common.DataServiceEntity]
+<#=codeStringGenerator.GenerateKeyAttribute(entity)#>
+<#=codeStringGenerator.EntityClassOpening(entity)#> : System.IEquatable<<#=code.Escape(entity)#>>
+{
+<#
+    var propertiesWithDefaultValues = typeMapper.GetPropertiesWithDefaultValues(entity);
+    var collectionNavigationProperties = typeMapper.GetCollectionNavigationProperties(entity);
+    var complexProperties = typeMapper.GetComplexProperties(entity);
+
+    if (propertiesWithDefaultValues.Any() || collectionNavigationProperties.Any() || complexProperties.Any())
+    {
+#>
+    public <#=code.Escape(entity)#>()
+    {
+<#
+        foreach (var edmProperty in propertiesWithDefaultValues)
+        {
+#>
+        this.<#=code.Escape(edmProperty)#> = <#=typeMapper.CreateLiteral(edmProperty.DefaultValue)#>;
+<#
+        }
+
+        foreach (var navigationProperty in collectionNavigationProperties)
+        {
+#>
+        this.<#=code.Escape(navigationProperty)#> = new HashSet<<#=typeMapper.GetTypeName(navigationProperty.ToEndMember.GetEntityType())#>>();
+<#
+        }
+
+        foreach (var complexProperty in complexProperties)
+        {
+#>
+        this.<#=code.Escape(complexProperty)#> = new <#=typeMapper.GetTypeName(complexProperty.TypeUsage)#>();
+<#
+        }
+#>
+    }
+
+<#
+    }
+
+    var simpleProperties = typeMapper.GetSimpleProperties(entity);
+    if (simpleProperties.Any())
+    {
+        foreach (var edmProperty in simpleProperties)
+        {
+#>
+    <#=codeStringGenerator.Property(edmProperty)#>
+<#
+        }
+    }
+
+    if (complexProperties.Any())
+    {
+#>
+
+<#
+        foreach(var complexProperty in complexProperties)
+        {
+#>
+    <#=codeStringGenerator.Property(complexProperty)#>
+<#
+        }
+    }
+
+    var navigationProperties = typeMapper.GetNavigationProperties(entity);
+    if (navigationProperties.Any())
+    {
+#>
+
+<#
+        foreach (var navigationProperty in navigationProperties)
+        {
+#>
+    <#=codeStringGenerator.NavigationProperty(navigationProperty)#>
+<#
+        }
+    }
+#>
+
+	#region Members overriden from System.Object
+
+	public override bool Equals(object obj)
+	{
+		<#=codeStringGenerator.GenerateEqualsMethodBody(entity)#>
+	}
+
+	/// <summary>
+	/// The Implementation of this algorithm was taken
+	/// from [here](http://www.isthe.com/chongo/tech/comp/fnv/).
+	/// </summary>
+	public override int GetHashCode()
+	{
+		int hash = 13;
+		unchecked
+		{
+<#foreach(EdmProperty property in typeMapper.GetSimpleProperties(entity))
+{#>
+			<#=codeStringGenerator.GenerateGetHashCodeSimplePropertyLine(property, ef)#>
+<#
+}
+foreach(EdmProperty property in typeMapper.GetComplexProperties(entity))
+{#>
+			<#=codeStringGenerator.GenerateGetHashCodeComplexPropertyLine(property)#>
+<#
+}#>
+		}
+		return hash;
+	}
+
+	public override string ToString()
+	{
+		return base.ToString();
+	}
+
+	#endregion
+
+	#region IEquatable<<#=code.Escape(entity)#>> Members
+
+	<#=codeStringGenerator.GenerateEquatableEqualsMethod(entity)#>
+	{
+		if(rhs == null)
+			return false;
+			
+		<#=codeStringGenerator.GenerateEquatableEqualsMethodBody(entity)#>
+	}
+
+	#endregion
+}
+<#
+    EndNamespace(entity);
+}
+
+//ComplexTypes
+foreach (var complex in typeMapper.GetItemsToGenerate<ComplexType>(itemCollection))
+{
+    fileManager.StartNewFile(complex.Name + ".cs");
+    BeginNamespace(complex);
+#>
+<#=codeStringGenerator.UsingDirectives(inHeader: false, includeCollections: false)#>
+<#=Accessibility.ForType(complex)#> partial class <#=code.Escape(complex)#>
+{
+<#
+    var complexProperties = typeMapper.GetComplexProperties(complex);
+    var propertiesWithDefaultValues = typeMapper.GetPropertiesWithDefaultValues(complex);
+
+    if (propertiesWithDefaultValues.Any() || complexProperties.Any())
+    {
+#>
+    public <#=code.Escape(complex)#>()
+    {
+<#
+        foreach (var edmProperty in propertiesWithDefaultValues)
+        {
+#>
+        this.<#=code.Escape(edmProperty)#> = <#=typeMapper.CreateLiteral(edmProperty.DefaultValue)#>;
+<#
+        }
+
+        foreach (var complexProperty in complexProperties)
+        {
+#>
+        this.<#=code.Escape(complexProperty)#> = new <#=typeMapper.GetTypeName(complexProperty.TypeUsage)#>();
+<#
+        }
+#>
+    }
+
+<#
+    }
+
+    var simpleProperties = typeMapper.GetSimpleProperties(complex);
+    if (simpleProperties.Any())
+    {
+        foreach(var edmProperty in simpleProperties)
+        {
+#>
+    <#=codeStringGenerator.Property(edmProperty)#>
+<#
+        }
+    }
+
+    if (complexProperties.Any())
+    {
+#>
+
+<#
+        foreach(var edmProperty in complexProperties)
+        {
+#>
+    <#=codeStringGenerator.Property(edmProperty)#>
+<#
+        }
+    }
+#>
+
+	#region Members overriden from System.Object
+
+	public override bool Equals(object obj)
+	{
+		<#=codeStringGenerator.GenerateEqualsMethodBody(complex)#>
+	}
+
+	/// <summary>
+	/// The Implementation of this algorithm was taken
+	/// from [here](http://www.isthe.com/chongo/tech/comp/fnv/).
+	/// </summary>
+	public override int GetHashCode()
+	{
+		int hash = 13;
+		unchecked
+		{
+<#foreach(EdmProperty property in typeMapper.GetSimpleProperties(complex))
+{#>
+			<#=codeStringGenerator.GenerateGetHashCodeSimplePropertyLine(property, ef)#>
+<#
+}
+foreach(EdmProperty property in typeMapper.GetComplexProperties(complex))
+{#>
+			<#=codeStringGenerator.GenerateGetHashCodeComplexPropertyLine(property)#>
+<#
+}#>
+		}
+		return hash;
+	}
+
+	public override string ToString()
+	{
+		return base.ToString();
+	}
+
+	#endregion
+
+	#region IEquatable<<#=code.Escape(complex)#>> Members
+
+	<#=codeStringGenerator.GenerateEquatableEqualsMethod(complex)#>
+	{
+		if(rhs == null)
+			return false;
+
+		<#=codeStringGenerator.GenerateEquatableEqualsMethodBody(complex)#>
+	}
+
+	#endregion
+}
+<#
+    EndNamespace(complex);
+}
+
+foreach (var enumType in typeMapper.GetEnumItemsToGenerate(itemCollection))
+{
+    fileManager.StartNewFile(enumType.Name + ".cs");
+    BeginNamespace(enumType);
+#>
+<#=codeStringGenerator.UsingDirectives(inHeader: false, includeCollections: false)#>
+<#
+    if (typeMapper.EnumIsFlags(enumType))
+    {
+#>
+[Flags]
+<#
+    }
+#>
+<#=codeStringGenerator.EnumOpening(enumType)#>
+{
+<#
+    var foundOne = false;
+    
+    foreach (MetadataItem member in typeMapper.GetEnumMembers(enumType))
+    {
+        foundOne = true;
+#>
+    <#=code.Escape(typeMapper.GetEnumMemberName(member))#> = <#=typeMapper.GetEnumMemberValue(member)#>,
+<#
+    }
+
+    if (foundOne)
+    {
+        this.GenerationEnvironment.Remove(this.GenerationEnvironment.Length - 3, 1);
+    }
+#>
+}
+<#
+    EndNamespace(enumType);
+}
+
+fileManager.Process();
+
+#>
+<#+
+
+public void WriteHeader(CodeStringGenerator codeStringGenerator, EntityFrameworkTemplateFileManager fileManager)
+{
+    fileManager.StartHeader();
+#>
+//------------------------------------------------------------------------------
+// <auto-generated>
+// <#=GetResourceString("Template_GeneratedCodeCommentLine1")#>
+//
+// <#=GetResourceString("Template_GeneratedCodeCommentLine2")#>
+// <#=GetResourceString("Template_GeneratedCodeCommentLine3")#>
+// </auto-generated>
+//------------------------------------------------------------------------------
+<#=codeStringGenerator.UsingDirectives(inHeader: true)#>
+<#+
+    fileManager.EndBlock();
+}
+
+public void BeginNamespace(EdmType item)
+{
+    //var codeNamespace = code.VsNamespaceSuggestion();
+    if (!String.IsNullOrEmpty(item.NamespaceName))
+    {
+#>
+namespace <#=item.NamespaceName#>
+{
+<#+
+        PushIndent("    ");
+    }
+}
+
+public void EndNamespace(EdmType item)
+{
+    if (!String.IsNullOrEmpty(item.NamespaceName))
+    {
+        PopIndent();
+#>
+}
+<#+
+    }
+}
+
+public partial class CodeStringGenerator
+{
+	public string GenerateKeyAttribute(EntityType entity)
+	{
+		string keys = string.Join(", ", entity.KeyMembers.Select(a => string.Format("\"{0}\"", a.Name)));
+
+		return string.Format(
+            CultureInfo.InvariantCulture,
+			"[System.Data.Services.Common.DataServiceKey({0})]",
+			keys);
+	}
+
+	public string GenerateEquatableEqualsMethod(EntityType entity)
+	{
+		return string.Format(
+            CultureInfo.InvariantCulture,
+			"public bool Equals({0} rhs)",
+			_code.Escape(entity));
+	}
+
+	public string GenerateEquatableEqualsMethod(ComplexType entity)
+	{
+		return string.Format(
+            CultureInfo.InvariantCulture,
+			"public bool Equals({0} rhs)",
+			_code.Escape(entity));
+	}
+
+	public string GenerateEquatableEqualsMethodBody(EntityType entity)
+	{
+		var properties = _typeMapper.GetSimpleProperties(entity)
+			.Concat(_typeMapper.GetComplexProperties(entity)).Select(a => {
+				if(_typeMapper.GetTypeName(a.TypeUsage) == "byte[]")
+					return string.Format("(({0} == null && rhs.{0} == null) ? true : ({0} == null || rhs.{0} == null) ? false : System.Linq.Enumerable.SequenceEqual({0}, rhs.{0}))", a.Name);
+				else
+					return string.Format("System.Collections.Generic.EqualityComparer<{0}>.Equals({1}, rhs.{1})", _code.Escape(entity), a.Name);
+			});
+
+		return string.Format(
+			CultureInfo.InvariantCulture,
+			"return {0};",
+			string.Join(" && ", properties));
+	}
+
+	public string GenerateEquatableEqualsMethodBody(ComplexType entity)
+	{
+		var properties = _typeMapper.GetSimpleProperties(entity)
+			.Concat(_typeMapper.GetComplexProperties(entity)).Select(a => 
+				string.Format("System.Collections.Generic.EqualityComparer<{0}>.Equals({1}, rhs.{1})", _code.Escape(entity), a.Name));
+
+		return string.Format(
+			CultureInfo.InvariantCulture,
+			"return {0};",
+			string.Join(" && ", properties));
+	}
+
+	public string GenerateEqualsMethodBody(EntityType entity)
+	{
+		return string.Format(
+			CultureInfo.InvariantCulture,
+			"return obj is {0} ? Equals(obj as {0}) : false;",
+			_code.Escape(entity));
+	}
+
+	public string GenerateEqualsMethodBody(ComplexType entity)
+	{
+		return string.Format(
+			CultureInfo.InvariantCulture,
+			"return obj is {0} ? Equals(obj as {0}) : false;",
+			_code.Escape(entity));
+	}
+
+	public string GenerateGetHashCodeSimplePropertyLine(EdmProperty property, MetadataTools ef)
+	{
+		if(_typeMapper.GetTypeName(property.TypeUsage) == "string" || 
+			_ef.IsNullable(property.TypeUsage))
+			return GenerateGetHashCodeComplexPropertyLine(property);
+		else if (_typeMapper.GetTypeName(property.TypeUsage) == "byte[]")
+			return GenerateGetHashCodeComplexProperty_ByteArray(property);
+
+		return string.Format(
+			CultureInfo.InvariantCulture,
+			"hash = (hash * 16777619) ^ {0}.GetHashCode();",
+			_code.Escape(property));
+	}
+
+	public string GenerateGetHashCodeComplexPropertyLine(EdmProperty property)
+	{
+		return string.Format(
+			CultureInfo.InvariantCulture,
+			"hash = (hash * 16777619) ^ ({0} == null ? 0 : {0}.GetHashCode());",
+			_code.Escape(property));
+	}
+
+	public string GenerateGetHashCodeComplexProperty_ByteArray(EdmProperty property)
+	{
+		return string.Format(
+			CultureInfo.InvariantCulture,
+			"if({0} == null) {{ hash = (hash * 16777619) ^ 0; }} else {{ foreach( byte b in {0} ) {{ hash = (hash * 16777619) ^ b.GetHashCode(); }} }}",
+			_code.Escape(property));
+	}
+}
+#>

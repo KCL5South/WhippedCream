@@ -1,0 +1,319 @@
+﻿<Schema Namespace="WhippedCream.Data.User" Alias="Self"
+        xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"
+        xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+	<EntityContainer Name="UserRepository" annotation:LazyLoadingEnabled="true">
+		<EntitySet Name="Users" EntityType="WhippedCream.Data.User.User" />
+		<EntitySet Name="Addresses" EntityType="WhippedCream.Data.User.Address" />
+		<EntitySet Name="AgentIds" EntityType="WhippedCream.Data.User.AgentId" />
+		<EntitySet Name="ContactNumbers" EntityType="WhippedCream.Data.User.ContactNumber" />
+		<EntitySet Name="EMailAddresses" EntityType="WhippedCream.Data.User.EMailAddress" />
+		<EntitySet Name="Preferences" EntityType="WhippedCream.Data.User.Preference" />
+		<EntitySet Name="Websites" EntityType="WhippedCream.Data.User.Website" />
+		<EntitySet Name="AgentAgencyAssociations" EntityType="WhippedCream.Data.User.AgentAgencyAssociation" />
+		<EntitySet Name="Awards" EntityType="WhippedCream.Data.User.Awards" />
+		<EntitySet Name="Files" EntityType="WhippedCream.Data.User.Files" />
+		<EntitySet Name="FilesFileDatas" EntityType="WhippedCream.Data.User.FilesFileData" />
+		<EntitySet Name="FilesWizardInfoes" EntityType="WhippedCream.Data.User.FilesWizardInfo" />
+		<EntitySet Name="LoginEntries" EntityType="WhippedCream.Data.User.LoginEntry" />
+		<EntitySet Name="Badges" EntityType="WhippedCream.Data.User.Badges" />
+		<EntitySet Name="MultiplyByTwoResults" EntityType="WhippedCream.Data.User.MultiplyByTwoResult" />
+
+		<AssociationSet Name="FK_UserAddress" Association="WhippedCream.Data.User.FK_UserAddress">
+			<End Role="User" EntitySet="Users" />
+			<End Role="Addresses" EntitySet="Addresses" />
+		</AssociationSet>
+		<AssociationSet Name="FK_UserAgentId" Association="WhippedCream.Data.User.FK_UserAgentId">
+			<End Role="Users" EntitySet="Users" />
+			<End Role="AgentIds" EntitySet="AgentIds" />
+		</AssociationSet>
+		<AssociationSet Name="FK_UserContactNumber" Association="WhippedCream.Data.User.FK_UserContactNumber">
+			<End Role="Users" EntitySet="Users" />
+			<End Role="ContactNumbers" EntitySet="ContactNumbers" />
+		</AssociationSet>
+		<AssociationSet Name="FK_UserEMailAddress" Association="WhippedCream.Data.User.FK_UserEMailAddress">
+			<End Role="Users" EntitySet="Users" />
+			<End Role="EMailAddresses" EntitySet="EMailAddresses" />
+		</AssociationSet>
+		<AssociationSet Name="FK_UserPreference" Association="WhippedCream.Data.User.UserPreferences">
+			<End Role="User" EntitySet="Users" />
+			<End Role="tb_Users_Preferences" EntitySet="Preferences" />
+		</AssociationSet>
+		<AssociationSet Name="FK_UserWebsite" Association="WhippedCream.Data.User.FK_UserWebsite">
+			<End Role="User" EntitySet="Users" />
+			<End Role="Websites" EntitySet="Websites" />
+		</AssociationSet>
+		<AssociationSet Name="FK_Users_Badges" Association="WhippedCream.Data.User.FK_Users_Badges">
+			<End Role="User" EntitySet="Users" />
+			<End Role="tb_Users_Badges" EntitySet="Badges" />
+		</AssociationSet>
+		
+		<FunctionImport Name="QueryAwards" ReturnType="Collection(WhippedCream.Data.User.Awards)" EntitySet="Awards">
+			<Parameter Name="number" Mode="In" Type="Int32" />
+		</FunctionImport>
+		<FunctionImport Name="MultiplyByTwo">
+			<Parameter Name="number" Mode="In" Type="Int32" />
+		</FunctionImport>
+		<FunctionImport Name="MultiplyByTwoQuiet">
+			<Parameter Name="number" Mode="In" Type="Int32" />
+		</FunctionImport>
+
+	</EntityContainer>
+
+	<EntityType Name="User">
+		<Key>
+			<PropertyRef Name="UserId" />
+		</Key>
+		<Property Name="UserId" Type="Guid" Nullable="false" />
+		<Property Name="Type" Type="Int32" />
+		<Property Name="UsernameId" Type="Guid" Nullable="false" />
+		<NavigationProperty Name="Addresses" Relationship="WhippedCream.Data.User.FK_UserAddress" FromRole="User" ToRole="Addresses" />
+		<NavigationProperty Name="AgentIds" Relationship="WhippedCream.Data.User.FK_UserAgentId" FromRole="Users" ToRole="AgentIds" />
+		<NavigationProperty Name="ContactNumbers" Relationship="WhippedCream.Data.User.FK_UserContactNumber" FromRole="Users" ToRole="ContactNumbers" />
+		<NavigationProperty Name="EMailAddresses" Relationship="WhippedCream.Data.User.FK_UserEMailAddress" FromRole="Users" ToRole="EMailAddresses" />
+		<NavigationProperty Name="Preferences" Relationship="WhippedCream.Data.User.UserPreferences" FromRole="User" ToRole="tb_Users_Preferences" />
+		<NavigationProperty Name="Websites" Relationship="WhippedCream.Data.User.FK_UserWebsite" FromRole="User" ToRole="Websites" />
+		<Property Name="Name" Type="WhippedCream.Data.User.Name" Nullable="false" />
+		<NavigationProperty Name="Badges" Relationship="WhippedCream.Data.User.FK_Users_Badges" FromRole="User" ToRole="tb_Users_Badges" />
+	</EntityType>
+	<EntityType Name="Address">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="AddressId" />
+		</Key>
+		<Property Name="UserId" Type="Guid" Nullable="false" />
+		<Property Name="AddressId" Type="Guid" Nullable="false" />
+		<Property Name="PrimaryAddress" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+		<Property Name="SecondaryAddress" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+		<Property Name="Suite" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+		<Property Name="POBox" Type="String" MaxLength="32" Unicode="true" FixedLength="false" />
+		<Property Name="City" Type="String" MaxLength="64" Unicode="true" FixedLength="false" />
+		<Property Name="State" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+		<Property Name="Type" Type="Int32" Nullable="false" />
+		<NavigationProperty Name="User" Relationship="WhippedCream.Data.User.FK_UserAddress" FromRole="Addresses" ToRole="User" />
+		<Property Name="ZipCode" Type="WhippedCream.Data.User.ZipCode" Nullable="false" />
+	</EntityType>
+	<EntityType Name="AgentId">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="AgentIdId" />
+		</Key>
+		<Property Name="UserId" Type="Guid" Nullable="false" />
+		<Property Name="AgentIdId" Type="Guid" Nullable="false" />
+		<Property Name="Value" Type="String" Nullable="false" MaxLength="16" Unicode="true" FixedLength="false" />
+		<Property Name="Type" Type="Int32" Nullable="false" />
+		<NavigationProperty Name="User" Relationship="WhippedCream.Data.User.FK_UserAgentId" FromRole="AgentIds" ToRole="Users" />
+	</EntityType>
+	<EntityType Name="ContactNumber">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="ContactNumberId" />
+		</Key>
+		<Property Name="UserId" Type="Guid" Nullable="false" />
+		<Property Name="ContactNumberId" Type="Guid" Nullable="false" />
+		<Property Name="Number" Type="String" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+		<Property Name="Extension" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
+		<Property Name="Type" Type="Int32" Nullable="false" />
+		<NavigationProperty Name="User" Relationship="WhippedCream.Data.User.FK_UserContactNumber" FromRole="ContactNumbers" ToRole="Users" />
+	</EntityType>
+	<EntityType Name="EMailAddress">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="EMailAddressId" />
+		</Key>
+		<Property Name="UserId" Type="Guid" Nullable="false" />
+		<Property Name="EMailAddressId" Type="Guid" Nullable="false" />
+		<Property Name="Address" Type="String" Nullable="false" MaxLength="64" Unicode="true" FixedLength="false" />
+		<Property Name="Type" Type="Int32" Nullable="false" />
+		<NavigationProperty Name="User" Relationship="WhippedCream.Data.User.FK_UserEMailAddress" FromRole="EMailAddresses" ToRole="Users" />
+	</EntityType>
+	<EntityType Name="Preference">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="PreferenceId" />
+		</Key>
+		<Property Name="UserId" Type="Guid" Nullable="false" />
+		<Property Name="PreferenceId" Type="Guid" Nullable="false" />
+		<Property Name="Type" Type="Int32" Nullable="false" />
+		<Property Name="Value" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+		<NavigationProperty Name="User" Relationship="WhippedCream.Data.User.UserPreferences" FromRole="tb_Users_Preferences" ToRole="User" />
+	</EntityType>
+	<EntityType Name="Website">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="WebsiteId" />
+		</Key>
+		<Property Name="UserId" Type="Guid" Nullable="false" />
+		<Property Name="WebsiteId" Type="Guid" Nullable="false" />
+		<Property Name="Address" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+		<Property Name="Type" Type="Int32" Nullable="false" />
+		<NavigationProperty Name="User" Relationship="WhippedCream.Data.User.FK_UserWebsite" FromRole="Websites" ToRole="User" />
+	</EntityType>
+	<EntityType Name="AgentAgencyAssociation">
+		<Key>
+			<PropertyRef Name="AssociationId" />
+		</Key>
+		<Property Type="Guid" Name="AssociationId" Nullable="false" />
+		<Property Type="String" Name="AgentId" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+		<Property Type="String" Name="AgencyId" Nullable="false" MaxLength="16" FixedLength="false" Unicode="false" />
+	</EntityType>
+	<EntityType Name="Badges">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="BadgeId" />
+		</Key>
+		<Property Type="Guid" Name="UserId" Nullable="false" />
+		<Property Type="Guid" Name="BadgeId" Nullable="false" />
+		<Property Type="Int32" Name="Type" />
+		<Property Type="DateTime" Name="DateReceived" />
+		<Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="false" />
+		<NavigationProperty Name="User" Relationship="WhippedCream.Data.User.FK_Users_Badges" FromRole="tb_Users_Badges" ToRole="User" />
+	</EntityType>
+	<EntityType Name="Awards">
+		<Key>
+			<PropertyRef Name="AwardId" />
+		</Key>
+		<Property Type="Guid" Name="UserId" Nullable="false" />
+		<Property Type="Guid" Name="AwardId" Nullable="false" />
+		<Property Type="Int32" Name="Type" />
+		<Property Type="DateTime" Name="DateReceived" />
+		<Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="false" />
+	</EntityType>
+	<EntityType Name="Files">
+		<Key>
+			<PropertyRef Name="UserId" />
+			<PropertyRef Name="FileKey" />
+		</Key>
+		<Property Type="Guid" Name="UserId" Nullable="false" />
+		<Property Type="Guid" Name="FileKey" Nullable="false" />
+		<Property Type="Int32" Name="FileType" Nullable="false" />
+		<Property Type="DateTime" Name="EntryDate" Nullable="false" />
+	</EntityType>
+	<EntityType Name="FilesFileData">
+		<Key>
+			<PropertyRef Name="FileKey" />
+		</Key>
+		<Property Type="Guid" Name="FileKey" Nullable="false" />
+		<Property Type="Binary" Name="FileData" Nullable="false" MaxLength="Max" FixedLength="false" />
+	</EntityType>
+	<EntityType Name="FilesWizardInfo">
+		<Key>
+			<PropertyRef Name="FileKey" />
+		</Key>
+		<Property Type="Guid" Name="FileKey" Nullable="false" />
+		<Property Type="String" Name="ClientFirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+		<Property Type="String" Name="ClientLastName" MaxLength="50" FixedLength="false" Unicode="false" />
+		<Property Type="DateTime" Name="RunDate" />
+	</EntityType>
+	<EntityType Name="LoginEntry">
+		<Key>
+			<PropertyRef Name="LoginId" />
+		</Key>
+		<Property Type="Guid" Name="LoginId" Nullable="false" />
+		<Property Type="Guid" Name="UserId" Nullable="false" />
+		<Property Type="DateTime" Name="LoginDate" Nullable="false" />
+	</EntityType>
+	<EntityType Name="MultiplyByTwoResult">
+		<Key>
+			<PropertyRef Name="Id" />
+		</Key>
+		<Property Name="Id" Type="Guid" Nullable="false" />
+		<Property Name="Result" Type="Int32" Nullable="false" />
+	</EntityType>
+
+	<Association Name="FK_UserAddress">
+		<End Role="User" Type="WhippedCream.Data.User.User" Multiplicity="1" />
+		<End Role="Addresses" Type="WhippedCream.Data.User.Address" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="User">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="Addresses">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Association Name="FK_UserAgentId">
+		<End Role="Users" Type="WhippedCream.Data.User.User" Multiplicity="1" />
+		<End Role="AgentIds" Type="WhippedCream.Data.User.AgentId" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="Users">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="AgentIds">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Association Name="FK_UserContactNumber">
+		<End Role="Users" Type="WhippedCream.Data.User.User" Multiplicity="1" />
+		<End Role="ContactNumbers" Type="WhippedCream.Data.User.ContactNumber" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="Users">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="ContactNumbers">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Association Name="FK_UserEMailAddress">
+		<End Role="Users" Type="WhippedCream.Data.User.User" Multiplicity="1" />
+		<End Role="EMailAddresses" Type="WhippedCream.Data.User.EMailAddress" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="Users">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="EMailAddresses">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Association Name="UserPreferences">
+		<End Role="User" Type="WhippedCream.Data.User.User" Multiplicity="1" />
+		<End Role="tb_Users_Preferences" Type="WhippedCream.Data.User.Preference" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="User">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="tb_Users_Preferences">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Association Name="FK_UserWebsite">
+		<End Role="User" Type="WhippedCream.Data.User.User" Multiplicity="1" />
+		<End Role="Websites" Type="WhippedCream.Data.User.Website" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="User">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="Websites">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+	<Association Name="FK_Users_Badges">
+		<End Type="WhippedCream.Data.User.User" Role="User" Multiplicity="1" />
+		<End Type="WhippedCream.Data.User.Badges" Role="tb_Users_Badges" Multiplicity="*" />
+		<ReferentialConstraint>
+			<Principal Role="User">
+				<PropertyRef Name="UserId" />
+			</Principal>
+			<Dependent Role="tb_Users_Badges">
+				<PropertyRef Name="UserId" />
+			</Dependent>
+		</ReferentialConstraint>
+	</Association>
+
+	<ComplexType Name="Name">
+		<Property Type="String" Name="First" MaxLength="32" FixedLength="false" Unicode="true" />
+		<Property Type="String" Name="Middle" MaxLength="32" FixedLength="false" Unicode="true" />
+		<Property Type="String" Name="Last" MaxLength="32" FixedLength="false" Unicode="true" />
+		<Property Type="String" Name="Suffix" MaxLength="64" FixedLength="false" Unicode="true" />
+		<Property Type="String" Name="Prefix" MaxLength="64" FixedLength="false" Unicode="true" />
+	</ComplexType>
+	<ComplexType Name="ZipCode">
+		<Property Type="String" Name="Primary" MaxLength="5" FixedLength="false" Unicode="true" />
+		<Property Type="String" Name="Secondary" MaxLength="4" FixedLength="false" Unicode="true" />
+	</ComplexType>
+</Schema>
