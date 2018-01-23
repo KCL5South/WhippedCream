@@ -33,14 +33,14 @@ Is MSBuild available?
     }
 
     It @"
-Is MSBuild version 4.0?
+Is MSBuild version 4.*?
     If this test fails, it is because the msbuild.exe that is available to the command line
-    is not version 4.0.  This project needs access to the 4.0 version of msbuild.exe.
+    is not version 4.*.  This project needs access to the 4.* version of msbuild.exe.
 "@  {
         (msbuild /nologo /version) | out-file "TestDrive:\msbuildversion.txt"
         $version = get-content "TestDrive:\msbuildversion.txt"
         
-        $version.StartsWith("4.0") | should be $true
+        $version.StartsWith("4.") | should be $true
     }
 
     It @"
