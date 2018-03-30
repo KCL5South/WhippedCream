@@ -168,7 +168,7 @@ Task Task-BuildNuGetPackage {
 }
 Task Task-DeployNuGetPackage {
 	Assert(Test-Path Variable:\NuGetApiKey) "The Variable `$NuGetApiKey must be defined"
-	get-childItem *.nupkg | foreach { nuget push $_.FullName -s http://www.ikclife.com/KCLNuGetFeed/ $NuGetApiKey }
+	get-childItem *.nupkg | foreach { nuget push $_.FullName -source http://www.ikclife.com/KCLNuGetFeed/ $NuGetApiKey }
 }
 Task Task-CleanUpNuGetPackages {
 	del *.nupkg
