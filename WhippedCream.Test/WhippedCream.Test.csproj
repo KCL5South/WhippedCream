@@ -38,7 +38,7 @@
     <Reference Include="AutoPoco, Version=1.0.14.0">
       <HintPath>..\Packages\KCLAutoPoco\lib\net35\AutoPoco.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.Services, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Data.Services, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Packages\Microsoft.Data.Services\lib\net40\Microsoft.Data.Services.dll</HintPath>
     </Reference>

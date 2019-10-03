@@ -56,19 +56,19 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Packages\EntityFramework\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.Edm, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Packages\Microsoft.Data.Edm\lib\net40\Microsoft.Data.Edm.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.OData, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Data.OData, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Packages\Microsoft.Data.OData\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Data.OData\lib\net40\Microsoft.Data.OData.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.Services, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Data.Services, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Packages\Microsoft.Data.Services\lib\net40\Microsoft.Data.Services.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Data.Services.Client, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Packages\Microsoft.Data.Services.Client\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
     </Reference>
@@ -80,7 +80,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Packages\NUnit\lib\nunit.framework.dll</HintPath>
     </Reference>
-    <Reference Include="System.Spatial, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Spatial, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Packages\System.Spatial\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
@@ -188,9 +188,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\Build\NuGet.targets" />
   <Import Project="$(MSBuildThisFileDirectory)..\packages\KCLTextTemplating\tools\KCLTextTemplating.targets" />
-
   <Target Name="AfterBuild">
-    <Exec Command="&quot;$(NUnitExecutable)&quot; &quot;$(MSBuildThisFileDirectory)\bin\$(Configuration)\$(AssemblyName).exe&quot;" 
-          WorkingDirectory="$(MSBuildThisFileDirectory)\bin\$(Configuration)" Condition=" '$(RunTests)'=='true' " />
+    <Exec Command="&quot;$(NUnitExecutable)&quot; &quot;$(MSBuildThisFileDirectory)\bin\$(Configuration)\$(AssemblyName).exe&quot;" WorkingDirectory="$(MSBuildThisFileDirectory)\bin\$(Configuration)" Condition=" '$(RunTests)'=='true' " />
   </Target>
 </Project>
