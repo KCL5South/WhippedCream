@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Data.EntityClient;
-using System.Data.Objects;
+using System.Data.Entity.Core.EntityClient;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using AutoPoco;
 using AutoPoco.Engine;

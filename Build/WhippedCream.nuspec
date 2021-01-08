@@ -7,8 +7,8 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>A Data Layer Library</description>
         <dependencies>
-            <group targetFramework=".NETFramework4.0">
-                <dependency id="Microsoft.Data.Services" version="5.5.0" />
+            <group targetFramework=".NETFramework4.5.2">
+                <dependency id="Microsoft.Data.Services" version="5.8.4" />
                 <dependency id="Unity" version="2.0" />
             </group>
         </dependencies>
@@ -27,7 +27,7 @@
         <file src="..\WhippedCream.Acceptance.Test\Data\Includes\TemplateId.ttinclude" target="content\TemplateId.ttinclude" />
         <file src="..\WhippedCream.Acceptance.Test\Data\Includes\TypeMapper.ttinclude" target="content\TypeMapper.ttinclude" />
         <file src="..\WhippedCream.Acceptance.Test\Data\Includes\Includes.ttinclude" target="content\Includes.ttinclude" />
-        <file src="..\WhippedCream\bin\Release\WhippedCream.dll" target="lib\net40\WhippedCream.dll" />
-        <file src="..\WhippedCream\bin\Release\WhippedCream.XML" target="lib\net40\WhippedCream.XML" />
+        <file src="..\WhippedCream\bin\Release\WhippedCream.dll" target="lib\net45\WhippedCream.dll" />
+        <file src="..\WhippedCream\bin\Release\WhippedCream.XML" target="lib\net45\WhippedCream.XML" />
     </files>
 </package>

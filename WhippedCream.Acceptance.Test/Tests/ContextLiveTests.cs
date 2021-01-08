@@ -4,7 +4,7 @@ using WhippedCream.InMemoryDataLayer;
 using Microsoft.Practices.Unity;
 using System.Linq;
 using System.Collections.Generic;
-using System.Data.Objects;
+using System.Data.Entity.Core.Objects;
 using WhippedCream.Data.User;
 using System.Data.Entity;
 namespace WhippedCream

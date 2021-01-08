@@ -6,7 +6,7 @@ using System.Linq;
 using System.ServiceModel.Web;
 using System;
 using System.Collections.Generic;
-using System.Data.Objects;
+using System.Data.Entity.Core.Objects;
 using WhippedCream.DataServiceDataLayer;
 namespace WhippedCream
 {
