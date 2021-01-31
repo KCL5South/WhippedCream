@@ -1,4 +1,4 @@
-$here = (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$here = (Split-Path -Parent $PSCommandPath)
 
 #Including things that are needed within this build.
 include (join-path $here "UpdateAssemblyInfo.ps1")
@@ -44,12 +44,12 @@ Task default -depends 	Task-RunPesterTests, `
 #	Run Pester Tests
 #-------------------------------
 Task Task-RunPesterTests {
-	Invoke-Pester -outputXML (Join-Path $env:TMP IULReportsTestOutput.xml)
-	$testResults = [xml](get-content (Join-Path $env:TMP IULReportsTestOutput.xml))
+	Invoke-Pester -Output Detailed -CI
+	$testResults = [xml](get-content testResults.xml)
 	
-	if(Test-Path (Join-Path $env:TMP IULReportsTestOutput.xml))
+	if(Test-Path testResults.xml)
 	{
-		Remove-Item (Join-Path $env:TMP IULReportsTestOutput.xml)
+		Remove-Item testResults.xml
 	}
 	
 	if(@($testResults | select-xml "//*/test-suite[descendant::failure]").Length -gt 0)

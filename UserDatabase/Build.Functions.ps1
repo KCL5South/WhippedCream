@@ -1,4 +1,4 @@
-$here = (Split-Path -Parent $MyInvocation.MyCommand.Path)
+$here = (Split-Path -Parent $PSCommandPath)
 $include = (Join-Path $here SqlHelpers.ps1)
 
 . $include
